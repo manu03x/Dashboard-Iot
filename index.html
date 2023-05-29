@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>IoT</title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/toggle.css" />
+  </head>
+
+  <body>
+      <header>
+        <nav>
+          <ul>
+            <h1 class="animate-charcter">BULBONS</h1>
+          </ul>
+          <h2>Sensors Mode</h2>
+
+          <div>
+            <div data-toggle="tooltip" data-placement="top" title="Manual-mode">
+              <input type="checkbox" id="sensor-mode" checked/><label for="sensor-mode"></label>
+            </div>
+          </div>
+        </nav>
+      </header>
+    <div id="wrapper">
+
+        <div class="content-area">
+          <div class="container-fluid">
+            <div class="main">
+              <div class="row mt-4">
+                <div class="col-md-5 ">
+                  <div class="box columnbox mt-4">
+                    <h2 class="text-color" >Movimiento</h2>
+                    <span class="animate-charcter2">ESTADO</span>
+                    <div class="center">
+                      <span class="dot circle active" id="movimiento-graph"></span>
+                    </div>
+                    <div data-toggle="tooltip" data-placement="top" title="Estado de foco">
+                      <input type="checkbox" id="movimiento-sw" /><label for="movimiento-sw">Movimiento</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-7">
+                  <div class="box  mt-4">
+                    <h2  class="text-color" >Sonico</h2>
+                    <span class="animate-charcter2">Metro</span>
+                    <div id="sonico"> </div>
+                    <div data-toggle="tooltip" data-placement="top" title="Estado de foco">
+                      <input type="checkbox" id="sonico-sw" /><label for="sonico-sw">Sonico</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="col-md-5">
+                  <div class="box  mt-4">
+                    <h2 class="text-color" >Temperatura </h2>                  
+                      <span class="animate-charcter2">Celsius</span>
+                    <div id="temperatura"> </div>
+                    <div data-toggle="tooltip" data-placement="top" title="Estado de foco">
+                      <input type="checkbox" id="temperatura-sw"  /><label for="temperatura-sw">Temperatura</label>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-md-7">
+                  <div class="box mt-4">
+                    <div class="mt-4">
+                      <h2 class="text-color" >Rayos UV</h2>
+                      <span class="animate-charcter2"></span>
+                      <div id="uv"></div>
+                      <div data-toggle="tooltip" data-placement="top" title="Estado de foco" >
+                        <input type="checkbox" id="uv-sw" /><label for="uv-sw">UV</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      
+              <div class="row">
+                <div class="float-right edit-on-codepen">
+                  <div id="progress3"></div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+      <h1 class="text-center mt-3">bulb states</h1>
+      <div class=" row margin-top d-flex text-center">
+        
+        <div class="col-6 col-sm-3">
+          <div>Movimiento</div>
+          <span id="movimiento-bulb" class="dot circle"></span>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div>Sonico</div>
+          <span id="sonico-bulb" class="dot circle"></span>
+        </div>
+      
+        <!-- Force next columns to break to new line -->
+        <!-- <div class="w-100"></div> -->
+      
+        <div class="col-6 col-sm-3">
+          <div>UV</div>
+          <span id="uv-bulb" class="dot circle"></span>
+        </div>
+        <div class="col-6 col-sm-3">
+          <div>Temperatura</div>
+          <span id="temperatura-bulb" class="dot circle"></span>
+        </div>
+      </div>
+      <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+      <script src="./js/app.js"></script>
+      <script src="./js/wss.js"></script>
+      <script src="./js/graphics.js"></script>
+      
+  </body>
+</html>
