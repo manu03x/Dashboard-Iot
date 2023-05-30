@@ -283,7 +283,7 @@ sonico.updateOptions({
 
 
 }
-window.addEventListener('DOMContentLoaded', (e) => {
+window.addEventListener('DOMContentLoaded', () => {
   handleCheckboxChange(sensorMode)
 })
 
@@ -355,8 +355,15 @@ function realTimeToggleMode(data) {
   sensorMode.checked = data.mode
   if(data.mode) {
     sensorToggles.forEach( toggle =>  {
-      if(toggle.id != 'sensor-mode') {
+      if(toggle != sensorMode) {
         toggle.checked = false
+        toggle.disabled = true
+      }
+    });
+  } else if (data.mode == 0) {
+    sensorToggles.forEach( toggle =>  {
+      if(toggle != sensorMode) {
+        toggle.disabled = false
       }
     });
   }
