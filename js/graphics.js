@@ -113,7 +113,7 @@ const optionsSonico = {
     enabled: true,
     easing: 'linear',
     dynamicAnimation: {
-      enabled: true,
+      enabled: false,
       delay: 1000
     }
   },
@@ -165,7 +165,7 @@ const optionsUv = {
     enabled: true,
     easing: 'linear',
     dynamicAnimation: {
-      enabled: true,
+      enabled: false,
       delay: 1000
     }
   },
