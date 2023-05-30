@@ -8,6 +8,7 @@ const sensorMode = document.querySelector('#sensor-mode');
 const sensorToggles = document.querySelectorAll('input[type="checkbox"]');
 
 
+
 //HOVER FX
 // Esta función alterna la clase 'effect' en el elemento con el id 'circle'
 setInterval(function() {
@@ -311,8 +312,7 @@ function handleCheckboxChange(checkbox) {
 }
 
 function manageCheckboxes(checkboxId, action) {
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  checkboxes.forEach(function(checkbox) {
+  sensorToggles.forEach(function(checkbox) {
     if (checkbox.id !== checkboxId && action == 'disable') {
       checkbox.disabled = true;
       checkbox.checked = false;
@@ -343,6 +343,23 @@ function manageBulbs() {
   }
 
 
+}
+
+
+function realTimeToggleSensors(data) {
+  const toggle = document.getElementById(data.sensor)
+  toggle.checked = !data.bulbo
+}
+
+function realTimeToggleMode(data) {
+  sensorMode.checked = data.mode
+  if(data.mode) {
+    sensorToggles.forEach( toggle =>  {
+      if(toggle =! sensorMode) {
+        toggle.checked = false
+      }
+    });
+  }
 }
 
 

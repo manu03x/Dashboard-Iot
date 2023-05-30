@@ -11,14 +11,23 @@ socket.onopen = function() {
 
 // Manejar el evento onmessage (se ejecuta cuando se recibe un mensaje del servidor)
 socket.onmessage = function(event) {
-  const sensorsData = JSON.parse(event.data);
+  const data = JSON.parse(event.data);
   // const jsonMessage = JSON.stringify(message)
   // const jsonData = JSON.parse(String.fromCharCode(...JSON.parse(jsonMessage).data))
-  console.log(event)
-  sensorData = new SensorData(sensorsData);
+  console.log(event.data)
+
+  if('mode' in data){
+    realTimeToggleMode(data);
+  } else if ('sensor' in data) {
+    realTimeToggleSensors(data);
+
+  } else if('temperatura' in data)  {
+    sensorData = new SensorData(data);
+    manageSensorDataForGraphics()
+    manageBulbs();
+  }
   // Realiza las acciones necesarias con el mensaje recibido desde el servidor
-  manageSensorDataForGraphics()
-  manageBulbs();
+
 };
 
 
