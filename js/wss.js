@@ -15,7 +15,6 @@ socket.onmessage = function(event) {
   // const jsonMessage = JSON.stringify(message)
   // const jsonData = JSON.parse(String.fromCharCode(...JSON.parse(jsonMessage).data))
   console.log(event.data)
-
   if('mode' in data){
     realTimeToggleMode(data);
   } else if ('sensor' in data) {
@@ -25,6 +24,7 @@ socket.onmessage = function(event) {
     sensorData = new SensorData(data);
     manageSensorDataForGraphics()
     manageBulbs();
+    console.log(data.movimiento)
   }
   // Realiza las acciones necesarias con el mensaje recibido desde el servidor
 

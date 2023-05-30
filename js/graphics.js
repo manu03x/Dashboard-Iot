@@ -227,15 +227,14 @@ sonico.render();
 
 function manageSensorDataForGraphics() {
 let temperaturaData = sensorData.getData('temperatura')
-let movimientoData = sensorData.getData('movimiento')
+let movimientoData = sensorData.getBulbStates()
 let sonicoData = sensorData.getData('sonico')
 
 
 temperatura.updateSeries([temperaturaData]);
 sonico.updateSeries([sonicoData]);
-
-if(movimientoData == 0) {
-
+console
+if(movimientoData.movimiento == 0) {
   movimientoGraphic.classList.add('active')
 } else {
   movimientoGraphic.classList.remove('active')
