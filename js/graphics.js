@@ -355,7 +355,7 @@ function realTimeToggleMode(data) {
   sensorMode.checked = data.mode
   if(data.mode) {
     sensorToggles.forEach( toggle =>  {
-      if(toggle =! sensorMode) {
+      if(toggle.id != 'sensor-mode') {
         toggle.checked = false
       }
     });
